@@ -1,0 +1,348 @@
+\chapter{Antwoorden}
+\label{chap:antwoorden}
+
+\section{Antwoorden hoofdstuk \ref{chap:comparch}}
+
+\subsubsection{OPGAVE 2.1}
+
+\begin{align*}
+14 &= 1110_2\\
+15 &= 1111_2\\
+16 &= 10000_2\\
+17 &= 10001_2\\
+18 &= 10010_2\\
+19 &= 10011_2\\
+20 &= 10100_2
+\end{align*}
+
+\subsubsection{OPGAVE 2.2}
+$5$ bits zijn $2^5 = 32$ getallen mogelijk
+
+\subsubsection{OPGAVE 2.3}
+\begin{align*}
+11111_2  &= 31 \rightarrow (16 + 8 + 4 + 2 + 1) \\
+101010_2 &= 42 \rightarrow (32 + 0 + 8 + 2 + 0) 
+\end{align*}
+
+\subsubsection{OPGAVE 2.4}
+\begin{align*}
+52  &= 110100_2 \\
+91  &= 1011011_2 \\
+351 &= 101011111_2 
+\end{align*}
+
+% % \subsubsection{OPGAVE 1.5}
+
+% % \begin{minipage}{.4\linewidth}
+% %     {
+% %     \setlength{\mathindent}{0cm}
+% %     \begin{align*}
+% %       10011101_2\\
+% %     0110111011_2\\
+% %     \text{\rule{2cm}{0.5pt}}\\
+% %     1001011000_2
+% %     \end{align*}
+% %     }
+% %     \end{minipage}
+% %     \mbox{}
+% %     \begin{minipage}{.4\linewidth}
+% %     {
+% %     \setlength{\mathindent}{0cm}
+% %     \begin{align*}
+% %     157\\
+% %     443\\
+% %     \text{\rule{1cm}{0.5pt}}\\
+% %     600
+% %     \end{align*}
+% %     }
+% %     \end{minipage}\\
+    
+\subsubsection{OPGAVE 2.5}
+$3A6_16 = 934\rightarrow (3 \cdot 16^2 + 10 \cdot 16^1 + 6 \cdot 16^0)$
+
+\subsubsection{OPGAVE 2.6}
+$783 = 30F_16$
+
+\subsubsection{OPGAVE 2.7}
+$7CE_16 = 0111\ 1100\ 1110_2$
+
+\subsubsection{OPGAVE 2.8}
+$0011\ 0101\ 1110\ 1011_2 = 35EB_16$
+    
+% %     \subsubsection{OPGAVE 1.10}
+    
+% %     \begin{minipage}{.4\linewidth}
+% %     {
+% %         \setlength{\mathindent}{0cm}
+% %         \begin{align*}
+% %             0011_2\\
+% %             1110_2\\
+% %             \text{\rule{2cm}{0.5pt}}\\
+% %             (1) 0001_2
+% %         \end{align*}
+% %     }
+% %     \end{minipage}
+    
+% %     De (1) hier nemen we niet mee in het antwoord. Deze hoef je dus ook niet op te schrijven.\\
+    
+% %     \subsubsection{OPGAVE 1.11}
+    
+% %     \begin{minipage}{.4\linewidth}
+% %     {
+% %         \setlength{\mathindent}{0cm}
+% %         \begin{align*}
+% %             0111_2\\
+% %             1100_2\\
+% %             \text{\rule{2cm}{0.5pt}}\\
+% %             (1) 0011_2
+% %         \end{align*}
+% %     }
+% %     \end{minipage}
+    
+% %     De (1) hier nemen we niet mee in het antwoord. Deze hoef je dus ook niet op te schrijven.\\
+    
+\subsubsection{Easy6502 opdrachten:}
+    
+First program - Question 1:
+\begin{lstlisting}[language=asm6502]
+LDA #$02
+STA $0200
+LDA #$03
+STA $0201
+LDA #$05
+STA $0202
+\end{lstlisting}
+
+First program - Question 2:
+\begin{lstlisting}[language=asm6502]
+LDA #$01
+STA $05FF
+\end{lstlisting}
+
+First program - Question 3:
+\begin{lstlisting}[language=asm6502]
+LDA #$04
+STA $0300
+LDA #$01
+STA $0400
+LDA #$12
+STA $0500
+\end{lstlisting}
+
+Introduction - Question 1:
+\begin{lstlisting}[language=asm6502]
+LDA #$55 ; A = 0x55
+TAY      ; Y = A (0x55)
+LDX #$11 ; X = 0x11
+TXA      ; A = X (0x11)
+TYA      ; A = Y (0x55)
+\end{lstlisting}
+
+Introduction - Question 2:
+\begin{lstlisting}[language=asm6502]
+LDA #$c0  ;Load the hex value $c0 into the A register
+TAY       ;Transfer the value in the A register to Y
+INY       ;Increment the value in the Y register
+ADC #$c4  ;Add the hex value $c4 to the A register
+BRK       ;Break - we're done
+\end{lstlisting}
+
+Introduction - Question 3:
+\begin{lstlisting}[language=asm6502]
+LDA #$c0 ;Load the hex value $c0 into the A register
+TAY      ;Transfer the value in the A register to Y
+INY      ;Increment the value in the Y register
+SBC #$c4 ;Subtract the hex value $c4 from the A register
+BRK      ;Break - we're done
+\end{lstlisting}
+
+Branching - Question 1:
+\begin{lstlisting}[language=asm6502]
+    LDX #$08
+decrement:
+    DEX
+    STX $0200
+    CPX #$03
+    BEQ store
+    JMP decrement
+    BRK
+
+store:
+    STX $0201
+    BRK
+\end{lstlisting}
+
+Branching - Question 2:
+\begin{lstlisting}[language=asm6502]
+    CLC
+    BCC jump
+    BRK
+    
+jump:
+    LDA #$FF
+    BRK
+\end{lstlisting}
+
+Adressing Modes (optional):
+\begin{lstlisting}[language=asm6502]
+LDA #$01   ; A = 1
+STA $0200  ; Store A (1) @ 0x0200
+
+LDX #$04   ; X = 4
+STA $a0, X ; Store A (1) @ 0x00a4 (0x00a0 + 0x0004)
+
+LDX $0200  ; X = 1 (value @ 0x0200)
+\end{lstlisting}
+
+\newpage
+\section{Antwoorden hoofdstuk \ref{chap:digitalelogica}}
+\subsubsection{OPGAVE 1a}
+\begin{center}
+\begin{tabular}{c@{\qquad \qquad \qquad}c}
+    $A\ \&\&\ B$   &   $A\ ||\ B$ \\
+    \begin{tabular}[t]{|c|c|c|}
+        \hline
+        A & B & Output \\
+        \hline \hline
+        F & F & F \\
+        T & F & F \\
+        F & T & F \\
+        T & T & T \\
+        \hline
+    \end{tabular}
+    &
+    \begin{tabular}[t]{|c|c|c|}
+        \hline
+        A & B & Output \\
+        \hline \hline
+        F & F & F \\
+        T & F & T \\
+        F & T & T \\
+        T & T & T \\
+        \hline
+    \end{tabular}
+\end{tabular}
+\end{center}
+
+\subsubsection{OPGAVE 1b}
+
+Zijn hetzelfde:
+\begin{center}
+\begin{tabular}{c@{\qquad \qquad \qquad}c}
+    $!(A\ \&\&\ B)$   &   $!A\ ||\ !B$ \\
+    \begin{tabular}[t]{|c|c|c|}
+        \hline
+        A & B & Output \\
+        \hline \hline
+        F & F & T \\
+        T & F & T \\
+        F & T & T \\
+        T & T & F \\
+        \hline
+    \end{tabular}
+    &
+    \begin{tabular}[t]{|c|c|c|}
+        \hline
+        A & B & Output \\
+        \hline \hline
+        F & F & T \\
+        T & F & T \\
+        F & T & T \\
+        T & T & F \\
+        \hline
+    \end{tabular}
+\end{tabular}
+\end{center}
+
+\subsubsection{OPGAVE 1c}
+
+Zie \textit{SR\_Latch.logicly} op Blackboard.
+
+\subsubsection{OPGAVE 2a}
+
+Zie \textit{adder.logicly} op Blackboard.
+
+\subsubsection{OPGAVE 2b}
+
+De laatste 'Carry'-bit kun je gebruiken als een extra bitje voor de output (bij overflow).
+
+\subsubsection{OPGAVE 3}
+
+Sequentiële. De uitgang 'Q' wordt medebepaald door de vorige staat van 'Q'. (m.a.w.: De output zit weer aangesloten op de ingang).
+
+\subsubsection{OPGAVE 4a}
+
+$4\ -\ 4$
+
+\subsubsection{OPGAVE 4b}
+
+$253 + 10$ (De $6502$ is een $8$-bit processor, dus $255$ is de max. waarde)
+
+\subsubsection{OPGAVE 4c/4d}
+
+\hspace{-10mm}
+\begin{tabular}[t]{|c|c|}
+    \hline
+    CISC & RISC \\
+    \hline \hline
+    Grotere instructieset, die veel verschillen per stuk & Kleinere instructieset, die meer overeenkomen \\
+    Minder registers nodig & Meer registers nodig \\
+    Complexere machinecode & Complexiteit zit meer in de compiler \\
+    De duur van een instructie kan onderling verschillen & Elke instructie duurt even lang \\
+    Pipelining is moeilijk & Pipelining is makkelijker \\
+    \hline
+\end{tabular}
+
+\subsubsection{OPGAVE 5}
+
+% Branch naar '\textit{LABEL}' als \textit{NUM1} $>=$ \textit{NUM2}
+LDA: Memory load and store instructions \\
+CMP: Arithmetic instructions \\
+DEX: Arithmetic instructions \\
+NOP: No operation instruction
+
+\subsubsection{OPGAVE 6}
+
+Kan letterlijk van alles zijn, bijv.: Een wekker die afloopt, een airbag in de auto, toets aanslaan op een toetsenbord, een sensorwaarde die bereikt is. 
+
+\subsubsection{OPGAVE 7}
+
+\hspace{-10mm}
+\begin{tabular}[t]{|p{70mm}|p{70mm}|}
+    \hline
+    Memory Mapped I/O & Port-mapped I/O \\
+    \hline \hline
+    - I/O is aan te sturen via een gereserveerd stukje geheugen (binnen het normale geheugen). & - I/O is aan te sturen via een eigen (los) stuk geheugen.\\
+    - Minder geheugen beschikbaar voor je eigen programma & - Meer geheugen beschikbaar, maar wel meer hardware nodig. \\
+    - Hierdoor kun je wel standaard lees- en schrijfinstructies gebruiken. & - I/O aansturen gaat middels een speciale instructieset.\\
+    \hline
+\end{tabular}
+
+
+\newpage
+\section{Antwoorden hoofdstuk \ref{chap:processor}}
+\subsubsection{OPGAVE 2a}
+Nee
+
+\subsubsection{OPGAVE 2b}
+De processen die er in Windows, Linux en Mac OS draaien hebben geen harde deadline eisen. 
+
+\subsubsection{OPGAVE 3c}
+Pacemaker, auto pilots, Marsrover
+
+\subsubsection{OPGAVE 3a}
+Bijv. Het wachten tot een kritieke sectie vrij komt.
+
+
+% \newpage
+% \section{Antwoorden hoofdstuk \ref{chap:architecturen}}
+% \subsubsection{OPGAVE 1}
+% Dit is een Von Neumann architectuur, omdat de code en de data zich in dezelfde adres-space bevinden.  
+
+% Het feit dat de code en sommige data worden opgeslagen in het ROM en andere data weer in het RAM is niet relevant voor het bepalen van de categorie van de architectuur. 
+
+% \subsubsection{OPGAVE 2}
+% Hoewel het beschermen van geheugen een eigenschap is van een MMU, betekend enkel de aanwezigheid van geheugen-bescherming niet dat er een MMU in gebruik is. Deze processor gebruikt dan ook geen MMU.
+
+% \subsubsection{Overige antwoorden}
+% Alle uitwerkingen van de opdrachten uit het boek van \textbf{Ledin} kunnen gevonden worden via deze link: \href{https://github.com/PacktPublishing/Modern-Computer-Architecture-and-Organization-Second-Edition}{https://github.com/PacktPublishing/Modern-Computer-Architecture-and-Organization-Second-Edition}.

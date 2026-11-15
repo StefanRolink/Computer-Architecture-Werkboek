@@ -1,0 +1,68 @@
+\chapter{De processor}
+\label{chap:processor}
+
+Deze week gaan we bestuderen wat de taken van een processor zijn, hoe de opstartprocedure er globaal uitziet en wat de generieke taken van het operating system zijn. En we leren wat een operating systeem
+'\textit{real-time}' maakt.
+
+\subsection*{Leerdoelen}
+Na het bestuderen van dit hoofdstuk wordt verwacht dat je:
+\begin{itemize}
+    \item[--] weet wat \textit{device drivers} zijn
+    \item[--] weet wat er globaal gebeurt tijdens het boot proces
+    \item[--] het verschil tussen \textit{BIOS} en \textit{UEFI} kunt benoemen
+    \item[--] weet je wat de taken van een operating system zijn
+    \item[--] het verschil weet tussen \textit{RTOS} en \textit{NON-RTOS}
+    \item[--] het verschil tussen \textit{process} en \textit{thread} kunt benoemen
+    \item[--] enkele scheduling algoritmes kent
+    \item[--] het verschil tussen \textit{preemptive} en \textit{non-preemptive} scheduling weet
+    \item[--] de basisprincipes kent van multiprocessing
+\end{itemize}
+
+\subsection*{Relevant materiaal}
+Bij dit hoofdstuk horen hoofdstukken 5 \& 6 van het tekstboek van \textbf{ledin} (\href{https://learning.oreilly.com/library/view/modern-computer-architecture/9781803234519/Text/Chapter\_5.xhtml\#:-:text=5,Hardware-Software\%20Interface}{link}).
+
+% \subsection*{Leerinhoud}
+
+\section{Hardware-software interface}
+Als een systeem ingeschakeld wordt moet (voordat het operating system opgestart kan worden) allereerst de firmware allerlei tests en systeemconfiguraties uitvoeren. Dit wordt afgehandeld tijdens het boot
+proces.
+
+\studeeraanwijzing{Bestudeer in \textbf{Ledin} paragrafen \textit{Device drivers} \& \textit{BIOS} t/m \textit{Embedded devices} van hoofdstuk 5 (\href{https://learning.oreilly.com/library/view/modern-computer-architecture/9781803234519/Text/Chapter\_5.xhtml\#:-:text=5,Hardware-Software\%20Interface}{link}).}
+
+\begin{opdracht}
+    \begin{minipage}[t]{0.9\linewidth}
+        \begin{enumerate}
+        \item [A] Start je pc of laptop opnieuw op, en open je BIOS of UEFI
+        settings. Welk systeem draait er?
+        \item [B] Kijk rond om te zien wat je allemaal kunt instellen. \\
+        \textbf{LET OP: } Als je klaar bent zorg dat je je wijzigingen \textbf{niet} opslaat bij het afsluiten, behalve als je echt weet wat je doet.
+        \end{enumerate}
+    \end{minipage}
+\end{opdracht}
+
+Bij het afronden van het boot process wordt het operating system opgestart. 
+
+\studeeraanwijzing{Bestudeer in \textbf{Ledin} paragraaf \textit{Operating systems} van hoofdstuk 5 (\href{https://learning.oreilly.com/library/view/modern-computer-architecture/9781803234519/Text/Chapter\_5.xhtml\#:-:text=Operating\%20systems,system\%20is\%20a\%20multilayer}{link}).}
+
+\begin{opdracht}
+    \begin{minipage}[t]{0.9\linewidth}
+        \begin{enumerate}
+        \item [A] Draait er op je laptop/PC een \textit{RTOS}?
+        \item [B] Wat maakt het dat je OS wel of geen \textit{RTOS} is?
+        \item [C] Geef een voorbeeld van een hard realtime systeem.
+        \end{enumerate}
+    \end{minipage}
+\end{opdracht}
+
+We gaan hierna kijken naar \textit{Processen} en \textit{Threads}. Een \textit{Process} is een programma dat uitgevoerd wordt op een processor, een \textit{Process} bestaat uit 1 of meerdere \textit{Threads}: Blokjes code die onafhankelijk van elkaar kunnen worden uitgevoerd.
+
+\studeeraanwijzing{Bestudeer in \textbf{Ledin} paragrafen \textit{Processes and threads} t/m \textit{Multiprocessing} van hoofdstuk 5 (\href{https://learning.oreilly.com/library/view/modern-computer-architecture/9781803234519/Text/Chapter\_5.xhtml\#:-:text=Processes\%20and\%20threads,Many\%2C\%20but\%20not\%20all\%2C}{link}).}
+
+\begin{opdracht}
+    \begin{minipage}[t]{0.9\linewidth}
+        \begin{enumerate}
+        \item [A] Geef een voorbeeld voor wanneer een \textit{Thread} de status '\textit{Blocked}' krijgt.
+        \item [B] Kijk op je laptop/PC welke processen er allemaal op dit moment draaien, wat is het \textit{PID} van het proces dat het processenoverzicht laat zien? 
+        \end{enumerate}
+    \end{minipage}
+\end{opdracht}
